@@ -47,6 +47,7 @@ group :test, :development do
   gem "sqlite3"
   gem "pry"
   gem "rack_session_access"
+  gem "annotate_models"
 end
 
 group :production do

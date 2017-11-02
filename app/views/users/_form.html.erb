@@ -1,11 +1,18 @@
 
-  <p>Name: <%= f.text_field :name %> </p>
-  <p>Password: <%= f.password_field :password %></p>
+  <table>
 
-  <br>
-  
-  <p>Height: <%= f.text_field :height %> </p>
-  <p>Happiness: <%= f.text_field :happiness %> </p>
-  <p>Nausea: <%= f.text_field :nausea %> </p>
-  <p>Tickets: <%= f.text_field :tickets %> </p>
-  <%= f.submit %>
+      <tr>
+        <td>Name: </td> <td><%= f.text_field :name %> </td>
+      </tr>
+
+      <tr><td>Password: </td><td><%= f.password_field :password %></td></tr>
+
+      <tr><td><br></td></tr>
+
+      <tr><td>Height: </td> <td><%= f.text_field :height %></td> </tr>
+      <tr><td>Happiness: </td><td><%= f.text_field :happiness %> </td></tr>
+      <tr><td>Nausea: </td> <td><%= f.text_field :nausea %> </td></tr>
+      <tr><td>Tickets: </td> <td><%= f.text_field :tickets %> </td></tr>
+    </table>
+    <br>
+    <p><%= f.submit %></p>

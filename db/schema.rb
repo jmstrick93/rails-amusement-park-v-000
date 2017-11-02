@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102130937) do
+ActiveRecord::Schema.define(version: 20171102153932) do
 
   create_table "attractions", force: :cascade do |t|
     t.string   "name"
@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 20171102130937) do
     t.integer  "nausea"
     t.integer  "height"
     t.integer  "tickets"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin?"
+    t.boolean  "admin",           default: false
   end
 
 end

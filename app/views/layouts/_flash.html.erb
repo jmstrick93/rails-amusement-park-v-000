@@ -1,3 +1,9 @@
-<% flash.each do |key, value| %>
-  <%= content_tag :div, value, class: "flash #{key}" %>
+<% if flash[:error] %>
+  <% flash[:error].each do |error| %>
+    <%= content_tag :p, error, class: "flash_error" %>
+  <% end %>
+<% end %>
+
+<% if flash[:notice] %>
+  <%= content_tag :p, flash[:notice], class: "flash_notice" %>
 <% end %>

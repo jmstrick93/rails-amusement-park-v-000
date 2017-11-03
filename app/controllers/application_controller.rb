@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
     session[:user_id].present? && User.find_by(id: session[:user_id]) ? true : false
   end
 
+  def add_flash_error(error_text)
+    flash[:error] ||= []
+    flash[:error] << error_text
+  end
+
 end

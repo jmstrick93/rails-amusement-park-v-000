@@ -9,7 +9,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    authenticate_user(@user)
+    @user = User.find_by(name: params[:user][:name])
+    if @user
+      if @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        add_flash_error("Invalid Password")
+        redirect_to signin_path
+      end
+    else
+      add_flash_error("Invalid Username")
+      redirect_to signin_path
+    end
   end
 
 
@@ -19,15 +31,5 @@ class SessionsController < ApplicationController
     params.require(:user).permit(:name, :password)
   end
 
-  def authenticate_user(user)
-    user = User.find_by(params[:user][:id])
-    if user.authenticate(params[:user][:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user)
-    else
-      flash[:errors] ||= []
-      flash[:errors]= user.errors if !!user.errors
-      redirect_to signin_path
-    end
-  end
+
 end

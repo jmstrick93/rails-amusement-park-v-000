@@ -13,6 +13,8 @@ class Ride < ActiveRecord::Base
     else
       #update ticket count, nausea, and happiness & save
       self.user.go_on_attraction(self.attraction)
+      self.save
+      self.thank_you_message
     end
   end
 
@@ -48,6 +50,10 @@ class Ride < ActiveRecord::Base
 
   def attraction_min_height
     self.attraction.min_height
+  end
+
+  def thank_you_message
+    "Thanks for riding the #{self.attraction.name}!"
   end
 
 end

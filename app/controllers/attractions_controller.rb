@@ -1,5 +1,13 @@
 class AttractionsController < ApplicationController
 
+  def new
+    @attraction = Attraction.new
+  end
+
+  def create
+    
+  end
+
   def index
     @attractions = Attraction.all
   end
@@ -16,20 +24,15 @@ class AttractionsController < ApplicationController
       r.user_id = session[:user_id]
       r.attraction_id = params[:id]
     end
-    if @ride.save
-      thank_you_message(@attraction)
-      @user.go_on_attraction(@attraction)
-      redirect_to user_path(@user)
-    else
-      redirect_to attraction_path(@attraction)
-    end
+    flash_text = @ride.take_ride
+    flash_message(flash_text)
+    redirect_to user_path(@user)
   end
 
   private
 
-  def thank_you_message(attraction)
-    flash[:notice] ||= []
-    flash[:notice] << "Thanks for riding the #{attraction.name}!"
+  def flash_message(text)
+    flash[:notice] = text
   end
 
 end

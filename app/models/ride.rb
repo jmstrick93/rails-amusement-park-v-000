@@ -12,10 +12,7 @@ class Ride < ActiveRecord::Base
       messages.unshift("Sorry.").compact.join(" ")
     else
       #update ticket count, nausea, and happiness & save
-      self.user.tickets -= self.attraction.tickets
-      self.user.nausea += self.attraction.nausea_rating
-      self.user.happiness += self.attraction.happiness_rating
-      self.user.save
+      self.user.go_on_attraction(self.attraction)
     end
   end
 

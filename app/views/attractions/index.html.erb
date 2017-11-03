@@ -1,4 +1,5 @@
 <h2>Attractions!</h2>
  <% @attractions.each do |a| %>
-  <p><%= a.name %> | <%= link_to "Go on #{a.name}", attraction_path(a) %></p>
+  <p><%= a.name %> | <%= view_attraction_link(@user, a) %></p>
 <% end %>
+<%= new_attraction_link(@user) %>

@@ -35,6 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 group :test, :development do
+  gem "launchy"
   gem "rspec-rails"
   gem "capybara"
   gem "selenium-webdriver"

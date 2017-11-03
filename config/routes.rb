@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#logout'
 
   resources :users
+  resources :attractions
 
 
 

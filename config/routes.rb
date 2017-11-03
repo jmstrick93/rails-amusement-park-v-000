@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#sign_in'
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'sessions#logout'
+  post '/attractions/:id/ride', to: 'attractions#ride'
 
   resources :users
   resources :attractions

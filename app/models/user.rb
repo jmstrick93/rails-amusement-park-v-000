@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
       "sad"
     end
   end
+
+  def authenticate_user(user)
+  end
+
 end

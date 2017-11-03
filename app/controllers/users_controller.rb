@@ -13,11 +13,12 @@ class UsersController < ApplicationController
       flash[:error] = @user.errors.full_messages
       redirect_to new_user_path
     end
-
-    def show
-      @user = User.find_by(id: params[:id])
-    end
   end
+
+  def show
+    @user = User.find_by(id: params[:id])
+  end
+
 
 
   private

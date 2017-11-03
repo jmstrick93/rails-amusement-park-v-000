@@ -5,9 +5,9 @@ module UserHelper
     end
   end
 
-  # def logout_button
-  #   if session[:user_id]
-  #     link_to "Log Out", logout_path
-  #   end
-  # end
+  def contextual_logout_button
+    if session[:user_id]
+      link_to "Log Out", logout_path
+    end
+  end
 end
